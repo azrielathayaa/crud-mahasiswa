@@ -1,1 +1,27 @@
-{"outputDirectory":"public","functions":{"api/mahasiswa.js":{"maxDuration":15}}}
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/mahasiswa.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/mahasiswa",
+      "dest": "/api/mahasiswa.js"
+    },
+    {
+      "src": "/",
+      "dest": "/public/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
+    }
+  ]
+}
